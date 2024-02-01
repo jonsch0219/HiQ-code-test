@@ -16,6 +16,7 @@ void Vehicle::setStartPosition(int x, int y, char dir) {
         xpos = x;
         ypos = y;
         direction = dir;
+        cout << "Vehicle position and direction (x, y, direction): (" << xpos << ", " << ypos << ", " << direction << ")" << endl;
     }
 }
 
@@ -127,7 +128,7 @@ void Vehicle::executeCommands(vector<char> commands) {
     bool crash = false;
 
     for (char i: commands) {
-        switch(i) {
+        switch (i) {
             case 'F':
                 cout << "Driving forward..." << endl;
                 driveForward();
@@ -147,13 +148,17 @@ void Vehicle::executeCommands(vector<char> commands) {
             default:
                 break;
         }
-        if (xpos > RoomObj.xsize or ypos > RoomObj.ysize) {
+
+        if (xpos > RoomObj.xsize or ypos > RoomObj.ysize or xpos < 0 or ypos < 0) {
             crash = true;
-            cout << "Car has crashed trying to enter (" << xpos << ", " << ypos << ") which is out of bounds!" << endl;
+            cout << "Car has crashed trying to enter (" << xpos << ", " << ypos << ") which is out of bounds!"
+                 << endl;
             break;
         }
+
     }
-    if (!crash) {
+
+    if (!crash)
         cout << "Commands executed successfully!" << endl;
-    }
+
 }

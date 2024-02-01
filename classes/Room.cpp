@@ -3,6 +3,7 @@
 void Room::setRoomSize(int x, int y) {
     xsize = x;
     ysize = y;
+    cout << "Room size: " << xsize << "x" << ysize << endl;
 }
 
 // CONSTRUCTOR

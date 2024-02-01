@@ -12,7 +12,7 @@ class Vehicle {
     public:
         // Variables
         Room RoomObj;
-        unsigned int xpos, ypos; // Vehicle position (x, y)
+        int xpos, ypos; // Vehicle position (x, y)
         char direction; // Direction of vehicle N, S, W or E
 
         // METHODS
@@ -23,6 +23,13 @@ class Vehicle {
         void driveLeft();
         void driveRight();
         void executeCommands(vector<char> commands);
+
+        //CONSTRUCTOR
+        Vehicle() {
+            xpos = -1;
+            ypos = -1;
+            direction = '-';
+        }
 };
 
 
