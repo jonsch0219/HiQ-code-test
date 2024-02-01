@@ -1,7 +1,3 @@
-//
-// Created by jonas on 2024-02-01.
-//
-
 #include "Vehicle.h"
 
 void Vehicle::setRoom(Room obj) {
