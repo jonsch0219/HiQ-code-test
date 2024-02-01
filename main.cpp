@@ -5,77 +5,68 @@ using namespace std;
 
 class Room {
 public:
-    int x, y; // Room size
-    void setSize(const vector<int> dims) {
-        x = dims[0];
-        y = dims[1];
-    }
-};
-
-class Vehicle {
-public:
-    int x, y; // Vehicle position
-    char dir; // Direction of vehicle
-    void setStartPosition(vector<int> start_pos) {
-        x = start_pos[0];
-        y = start_pos[1];
-    }
-    void setDirection(char direction) {
-        dir = direction;
-    }
-};
-
-class User {
-public:
-    static vector<int> getRoomSize() {
-
+    unsigned int xsize, ysize; // Room size
+    void setRoomSize() {
         // Get room dimensions from user
-        bool invalid_dims = true;
         int x, y;
 
-        while (invalid_dims) {
+        while (true) {
             cout << "Enter room dimensions (x and y): ";
             cin >> x >> y;
-            if (!cin) {
+            if (!cin or x <= 0 or y <= 0) {
                 cout << "Invalid dimensions!" << endl;
                 cin.clear();
                 fflush(stdin);
                 continue;
             }
-            invalid_dims = false;
+            break;
         }
-        vector<int> room_dims = {x, y};
-        return room_dims;
-    }
 
-    static vector<int> getStartPosition() {
-        // Get starting values from user - position and direction of vehicle
+        xsize = x;
+        ysize = y;
+    }
+    Room() {
+        xsize = 0;
+        ysize = 0;
+    }
+};
+
+class Vehicle {
+public:
+    Room RoomObj;
+    unsigned int xpos, ypos; // Vehicle position
+    char direction; // Direction of vehicle
+    void setRoom(Room obj) {
+        RoomObj = obj;
+    }
+    void setStartPosition() {
+
         vector<char> valid_dir = {'N', 'S', 'W', 'E'};
-        int x, y;
-        char dir;
+        int x = 0, y = 0;
+        char dir = '-';
 
         while (true) {
+            if (RoomObj.ysize == 0 and RoomObj.ysize == 0) {
+                cout << "No room set!" << endl;
+                break;
+            }
             cout << "Enter start position and heading of the vehicle (x, y and N,S,W or E): ";
             cin >> x >> y >> dir;
-
-            if (!cin) {
-                cout << "Invalid Input" << endl;
+            // Checks for invalid types and directions and negative values and if starting position is available
+            if (!cin or !(count(valid_dir.begin(), valid_dir.end(), dir)) or x < 0 or y < 0 or x > RoomObj.xsize or y > RoomObj.ysize) {
+                cout << "Invalid Input!" << endl;
                 cin.clear();
                 fflush(stdin);
                 continue;
             }
-
-            if (!(count(valid_dir.begin(), valid_dir.end(), dir))) {
-                cout << "Invalid Direction!" << endl;
-                continue;
-            }
-
             break;
         }
-        vector<int> start_pos = {x, y, dir};
-        return start_pos;
+        xpos = x;
+        ypos = y;
+        direction = dir;
     }
 };
+
 
 /* TODO
 vector<int> getCommands()
@@ -87,20 +78,14 @@ void executeCommand() {
 
 
 int main() {
-    User newUser;
-    Room newRoom;
-    Vehicle newVehicle;
+    Room RoomObj;
+    Vehicle VehicleObj;
 
-    vector<int> room_dims = newUser.getRoomSize();
-    newRoom.setSize(room_dims);
+    RoomObj.setRoomSize();
+    cout << "Room size: " << RoomObj.xsize << "x" << RoomObj.ysize << endl;
 
+    VehicleObj.setRoom(RoomObj);
+    VehicleObj.setStartPosition();
+    cout << "Vehicle Position and Direction: (x:" << VehicleObj.xpos << ", y:" << VehicleObj.ypos << ") " << VehicleObj.direction << endl;
 
-    cout << "Room Dimensions: " << newRoom.x << " " << newRoom.y << endl;
-
-    vector<int> start_pos = newUser.getStartPosition();
-    newVehicle.setStartPosition(start_pos);
-    newVehicle.setDirection(start_pos[2]);
-
-    cout << "Starting Position: " << newVehicle.x << " " << newVehicle.y << endl;
-    cout << "Direction: " << newVehicle.dir << endl;
 }
