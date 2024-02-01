@@ -162,3 +162,9 @@ void Vehicle::executeCommands(vector<char> commands) {
         cout << "Commands executed successfully!" << endl;
 
 }
+
+Vehicle::Vehicle() {
+        xpos = -1;
+        ypos = -1;
+        direction = '-';
+}

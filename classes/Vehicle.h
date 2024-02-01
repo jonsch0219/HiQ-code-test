@@ -25,11 +25,7 @@ class Vehicle {
         void executeCommands(vector<char> commands);
 
         //CONSTRUCTOR
-        Vehicle() {
-            xpos = -1;
-            ypos = -1;
-            direction = '-';
-        }
+        Vehicle();
 };
 
 
