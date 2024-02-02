@@ -13,7 +13,7 @@ vector<int> User::getStartPosition() {
     if (!cin or !(count(valid_dir.begin(), valid_dir.end(), dir)) or x < 0 or y < 0) {
         cout << "Invalid input found!" << endl;
         cin.clear();
-        fflush(stdin);
+        cin.ignore(INT_MAX, '\n');
         return {}; //Invalid value return empty vector
     }
 
@@ -35,7 +35,7 @@ vector<char> User::getCommands() {
         if (!(count(valid_com.begin(), valid_com.end(), i))) {
             cout << "Invalid command found!" << endl;
             cin.clear();
-            fflush(stdin);
+            cin.ignore(INT_MAX, '\n');
             return {}; // Invalid command found, return empty vector
         }
     }
@@ -54,7 +54,7 @@ vector<int> User::getRoomSize() {
     if (!cin or x <= 0 or y <= 0) {
         cout << "The size you have entered is invalid!" << endl;
         cin.clear();
-        fflush(stdin);
+        cin.ignore(INT_MAX, '\n');
         return {}; // Invalid dimensions found, return empty vector
     }
 
