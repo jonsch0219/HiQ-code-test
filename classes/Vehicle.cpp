@@ -10,6 +10,7 @@ int Vehicle::setStartPosition(int x, int y, char dir) {
     // Check if the vehicle can be placed in given position
     if (x > RoomObj.xsize or y > RoomObj.ysize) {
         cout << "Cannot place vehicle at this position!" << endl;
+        fflush(stdin);
         return 0; // Position invalid and therefore not set return 0
     }
 
