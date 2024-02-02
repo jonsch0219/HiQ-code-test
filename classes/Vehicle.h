@@ -17,12 +17,12 @@ class Vehicle {
 
         // METHODS
         void setRoom(Room obj);
-        void setStartPosition(int x, int y, char dir);
+        int setStartPosition(int x, int y, char dir);
         void driveForward();
         void driveBack();
         void driveLeft();
         void driveRight();
-        void executeCommands(vector<char> commands);
+        int executeCommands(vector<char> commands);
 
         //CONSTRUCTOR
         Vehicle();

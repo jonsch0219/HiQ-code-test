@@ -4,20 +4,21 @@ void Vehicle::setRoom(Room obj) {
     RoomObj = obj;
 }
 
-void Vehicle::setStartPosition(int x, int y, char dir) {
+int Vehicle::setStartPosition(int x, int y, char dir) {
     // Set start position of car given from user
 
     // Check if the vehicle can be placed in given position
     if (x > RoomObj.xsize or y > RoomObj.ysize) {
         cout << "Cannot place vehicle at this position!" << endl;
+        return 0; // Position invalid and therefore not set return 0
     }
-    else {
-        //Set start position
-        xpos = x;
-        ypos = y;
-        direction = dir;
-        cout << "Vehicle position and direction (x, y, direction): (" << xpos << ", " << ypos << ", " << direction << ")" << endl;
-    }
+
+    //Set start position
+    xpos = x;
+    ypos = y;
+    direction = dir;
+    cout << "Vehicle position and direction (x, y, direction): (" << xpos << ", " << ypos << ", " << direction << ")" << endl;
+    return 1;
 }
 
 void Vehicle::driveForward() {
@@ -124,8 +125,7 @@ void Vehicle::driveRight() {
     }
 }
 
-void Vehicle::executeCommands(vector<char> commands) {
-    bool crash = false;
+int Vehicle::executeCommands(vector<char> commands) {
 
     for (char i: commands) {
         switch (i) {
@@ -150,21 +150,16 @@ void Vehicle::executeCommands(vector<char> commands) {
         }
 
         if (xpos > RoomObj.xsize or ypos > RoomObj.ysize or xpos < 0 or ypos < 0) {
-            crash = true;
-            cout << "Car has crashed trying to enter (" << xpos << ", " << ypos << ") which is out of bounds!"
-                 << endl;
-            break;
+            cout << "Car has crashed trying to enter (" << xpos << ", " << ypos << ") which is out of bounds!" << endl;
+            return 0; // car has crashed return 0
         }
-
     }
-
-    if (!crash)
-        cout << "Commands executed successfully!" << endl;
-
+    cout << "Commands executed successfully!" << endl;
+    return 1; // car has completed commands without crashing
 }
 
 Vehicle::Vehicle() {
-        xpos = -1;
-        ypos = -1;
+        xpos = 0;
+        ypos = 0;
         direction = '-';
 }
