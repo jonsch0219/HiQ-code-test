@@ -33,5 +33,7 @@ At last if the input is correct you will be asked to enter a list of commands F:
 
 Example input: FFLRLRB
 
+Worth mentioning: When given the output which shows how the vehicle position and how it changes after each command the positions of the vehicle are given in x and y coordinates ranging from index 0-n. So if the vehicle is in a 2x2 size room car position (2, 2) is out of bounds.
+
 
 
