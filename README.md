@@ -8,7 +8,6 @@ During the process of completing this test I made assumptions about the program 
 When entering the commands LEFT or RIGHT I assumed that the vehicle should rotate and drive in that direction instead of just rotating in its place. This is something I realized later on could possibly be a missunderstanding on my part but chose to keep
 the feature anyway. Also when entering the command BACK the vehicle does not reverse it instead changes direction 180 degrees and drives in that direction, which is as mentioned before something I may have misunderstood but chose to keep anyway.
 
-# Structure
 ## Classes
 My program is divided into 4 classes **Program**, **Room**, **Vehicle** and **User**. 
 
@@ -21,7 +20,7 @@ A vehicle also contains a Room object which specifies in what room the vehicle i
 
 **User** consists of methods that get input data from the users. The different methods have code that checks for invalid inputs and signals this by signaling with a specific return value such as 0 or {} (empty vector).
 
-# User guide
+## User guide
 When starting the program you will be asked to input the size of the room in which the vehicle will drive around in. The size will be given in x and y dimensions (ranging from 1-n) seperated by a space.
 
 Example input: 1 1 (room size of 1 block)
