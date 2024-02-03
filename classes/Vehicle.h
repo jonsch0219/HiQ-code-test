@@ -9,12 +9,13 @@ using namespace std;
 
 
 class Vehicle {
-    public:
+    private:
         // Variables
         Room RoomObj;
-        int xpos, ypos; // Vehicle position (x, y)
+        int xpos, ypos; // Vehicle position (x, y) 0-n index
         char direction; // Direction of vehicle N, S, W or E
 
+    public:
         // METHODS
         void setRoom(Room obj);
         int setStartPosition(int x, int y, char dir);

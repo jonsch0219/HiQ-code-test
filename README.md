@@ -11,14 +11,14 @@ the feature anyway. Also when entering the command BACK the vehicle does not rev
 ## Classes
 My program is divided into 4 classes **Program**, **Room**, **Vehicle** and **User**. 
 
-**Program** Contains the code necessary to run the program in a smooth way and handling invalid inputs and contradictions that may arise. 
+**Program** Contains the code necessary to run the program in a smooth way and handling invalid inputs.
 
-**Room** class is used to store the size of the room given in 1-n index (a 1x1 room is 1 block).
+**Room** is used to store the size of the room given in 1-n index (a 1x1 room is 1 block).
 
-**Vehicle** Contains the position of the vehicle which is given in 0-n index (if a vehicle is placed in a block inside a 1x1 room its position will be (0, 0)) and the direction (N: north, S: south, W: west, E: east). 
+**Vehicle** contains the position of the vehicle which is given in 0-n index (if a vehicle is placed in a block inside a 1x1 room its position will be (0, 0)) and the direction (N: north, S: south, W: west, E: east). 
 A vehicle also contains a Room object which specifies in what room the vehicle is placed in and will execute the given commands in.
 
-**User** consists of methods that get input data from the users. The different methods have code that checks for invalid inputs and signals this by signaling with a specific return value such as 0 or {} (empty vector).
+**User** consists of methods that get input data from the user. The different methods have code that checks for invalid inputs and signals this by signaling with a specific return value such as 0 or {} (empty vector).
 
 ## User guide
 When starting the program you will be asked to input the size of the room in which the vehicle will drive around in. The size will be given in x and y dimensions (ranging from 1-n) seperated by a space.
@@ -27,9 +27,9 @@ Example input: 1 1 (room size of 1 block)
 
 After you've specified the room size you know need to enter the starting position and direction of the vehicle which will drive in the room. This is given by x and y index (ranging from 0-n) and N: north, S: south, W: west, or E: east all seperated by a space.
 
-Example input: 0 0 N
+Example input: 0 0 N (make sure the starting position you give exists in the room)
 
-At last if the input is correct you will be asked to enter a list of commands F: forward, L: left, R: right, B: back which will be executed in the order given.
+At last if the input is valid you will be asked to enter a list of commands F: forward, L: left, R: right, B: back which will be executed in the order given.
 
 Example input: FFLRLRB
 

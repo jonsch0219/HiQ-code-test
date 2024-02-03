@@ -8,7 +8,7 @@ int Vehicle::setStartPosition(int x, int y, char dir) {
     // Set start position of car given from user
 
     // Check if the vehicle can be placed in given position
-    if (x > RoomObj.xsize or y > RoomObj.ysize) {
+    if (x > RoomObj.getRoomSizeX() or y > RoomObj.getRoomSizeY()) {
         cout << "Cannot place vehicle at this position!" << endl;
         return 0; // Position invalid and therefore not set return 0
     }
@@ -149,7 +149,7 @@ int Vehicle::executeCommands(vector<char> commands) {
                 break;
         }
 
-        if (xpos > RoomObj.xsize or ypos > RoomObj.ysize or xpos < 0 or ypos < 0) {
+        if (xpos > RoomObj.getRoomSizeX() or ypos > RoomObj.getRoomSizeY() or xpos < 0 or ypos < 0) {
             cout << "Car has crashed trying to enter (" << xpos << ", " << ypos << ") which is out of bounds!" << endl;
             return 0; // car has crashed return 0
         }

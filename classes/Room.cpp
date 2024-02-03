@@ -7,8 +7,17 @@ void Room::setRoomSize(int x, int y) {
     cout << "Room size: " << x << "x" << y << endl;
 }
 
+int Room::getRoomSizeX() {
+    return xsize;
+}
+
+int Room::getRoomSizeY() {
+    return ysize;
+}
+
 // CONSTRUCTOR
 Room::Room() {
     xsize = 0;
     ysize = 0;
 }
+

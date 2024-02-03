@@ -7,13 +7,14 @@ using namespace std;
 
 
 class Room {
-    public:
+    private:
         // VARIABLES
-        int xsize, ysize; // Room size
-
+        int xsize, ysize; // Room size values from 1-n
+    public:
         // METHODS
         void setRoomSize(int x, int y);
-
+        int getRoomSizeX();
+        int getRoomSizeY();
         // CONSTRUCTOR
         Room();
 };
