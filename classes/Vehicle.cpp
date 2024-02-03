@@ -22,6 +22,7 @@ int Vehicle::setStartPosition(int x, int y, char dir) {
 }
 
 void Vehicle::driveForward() {
+    cout << "Driving forward..." << endl;
     switch(direction) {
         case 'N':
             ypos += 1;
@@ -45,6 +46,7 @@ void Vehicle::driveForward() {
 }
 
 void Vehicle::driveBack() {
+    cout << "Driving backward..." << endl;
     switch(direction) {
         case 'N':
             ypos -= 1;
@@ -72,6 +74,7 @@ void Vehicle::driveBack() {
 }
 
 void Vehicle::driveLeft() {
+    cout << "Driving left..." << endl;
     switch(direction) {
         case 'N':
             xpos -= 1;
@@ -99,6 +102,7 @@ void Vehicle::driveLeft() {
 }
 
 void Vehicle::driveRight() {
+    cout << "Driving right..." << endl;
     switch(direction) {
         case 'N':
             xpos += 1;
@@ -130,19 +134,15 @@ int Vehicle::executeCommands(vector<char> commands) {
     for (char i: commands) {
         switch (i) {
             case 'F':
-                cout << "Driving forward..." << endl;
                 driveForward();
                 break;
             case 'B':
-                cout << "Driving backward..." << endl;
                 driveBack();
                 break;
             case 'L':
-                cout << "Driving left..." << endl;
                 driveLeft();
                 break;
             case 'R':
-                cout << "Driving right..." << endl;
                 driveRight();
                 break;
             default:
