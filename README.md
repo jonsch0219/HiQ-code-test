@@ -1,5 +1,4 @@
 # Note to reviewer
-In total I spent around 8 hours on this project which includes setting up the environment, developing, refactoring, testing and documenting.
 
 ## Assumptions made
 During the process of completing this test I made assumptions about the program asked to be implemented. First of I assumed that only one vehicle could be in a single room at a time, if this weren't the case I would have to implement a
